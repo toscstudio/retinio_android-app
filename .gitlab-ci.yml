@@ -1,4 +1,4 @@
-image: jacekmarchwicki/android
+image: lerk/android
 
 stages:
   - build
@@ -13,4 +13,4 @@ cache:
 buildAndroid:
   stage: build
   script:
-    - docker run --tty --interactive --volume=$(pwd):/opt/workspace --workdir=/opt/workspace --rm jacekmarchwicki/android:java7  /bin/sh -c "./gradlew build"
+    - ./gradlew build
