@@ -14,7 +14,7 @@ public class StoreAdapter extends RecyclerView.Adapter<StoreAdapter.ViewHolder> 
 
     List<Store> storesList;
 
-    public StoreAdapter(List<Store> storesList){
+    public StoreAdapter(List<Store> storesList) {
         this.storesList = storesList;
     }
 
