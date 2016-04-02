@@ -36,7 +36,7 @@ public class ExploreFragment extends Fragment {
 
     private List<Store> createRandomList() {
         List<Store> storeList = new ArrayList<>();
-        for(int i = 10; i > 0; i++) {
+        for(int i = 10; i > 0; i--) {
             Store s = new Store();
             s.setName("Eye Trends");
             s.setAddress("B-1/113, Rohini, New Delhi");
