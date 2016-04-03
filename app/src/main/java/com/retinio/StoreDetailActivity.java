@@ -7,6 +7,8 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuItem;
 
 import com.retinio.fragments.StorePhotoFragment;
 import com.retinio.ui.InkPageIndicator;
@@ -32,6 +34,7 @@ public class StoreDetailActivity extends AppCompatActivity {
 
         assert getSupportActionBar() != null;
         getSupportActionBar().setTitle("");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         ViewPager viewPager = (ViewPager) findViewById(R.id.store_photo_viewpager);
         if (viewPager != null) {
@@ -81,5 +84,20 @@ public class StoreDetailActivity extends AppCompatActivity {
         public CharSequence getPageTitle(int position) {
             return mFragmentTitles.get(position);
         }
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_store_detail, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.action_book_appointment:
+                break;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }
