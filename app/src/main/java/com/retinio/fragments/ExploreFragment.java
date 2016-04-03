@@ -44,7 +44,7 @@ public class ExploreFragment extends Fragment {
         // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.fragment_explore, container, false);
         mRecyclerView = (RecyclerView) rootView.findViewById(R.id.store_list);
-        mRecyclerView.setAdapter(new StoreAdapter(createRandomList()));
+        mRecyclerView.setAdapter(new StoreAdapter(getActivity(), createRandomList()));
         mRecyclerView.addItemDecoration(new SpacesItemDecoration(40));
         return rootView;
     }

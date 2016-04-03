@@ -1,5 +1,7 @@
 package com.retinio.adapters;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.retinio.R;
+import com.retinio.StoreDetailActivity;
 import com.retinio.pojo.Store;
 
 import java.util.List;
@@ -18,9 +21,11 @@ import java.util.List;
 public class StoreAdapter extends RecyclerView.Adapter<StoreAdapter.ViewHolder> {
 
     List<Store> storesList;
+    Activity context;
 
-    public StoreAdapter(List<Store> storesList) {
+    public StoreAdapter(Activity context, List<Store> storesList) {
         this.storesList = storesList;
+        this.context = context;
     }
 
     @Override
@@ -70,6 +75,14 @@ public class StoreAdapter extends RecyclerView.Adapter<StoreAdapter.ViewHolder> 
             storePhoto = (ImageView) itemView.findViewById(R.id.store_photo);
             docAvailable = (ImageView) itemView.findViewById(R.id.store_doc_available);
             buyAvailable = (ImageView) itemView.findViewById(R.id.store_buy_available);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(context, StoreDetailActivity.class);
+                    context.startActivity(intent);
+                }
+            });
 
         }
     }

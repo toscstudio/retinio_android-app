@@ -9,8 +9,15 @@
     </style>
 
     <style name="IntroTheme" parent="AppTheme">
-        <item name="android:windowTranslucentStatus">true</item>
-        <item name="android:statusBarColor">@android:color/transparent</item>
+        <!--<item name="android:windowTranslucentStatus">true</item>-->
+        <!--<item name="android:statusBarColor">@android:color/transparent</item>-->
     </style>
+
+    <style name="AppTheme.FullScreen.Light" parent="AppTheme">
+        <!--<item name="android:windowContentTransitions">true</item>-->
+        <!--<item name="android:windowTranslucentStatus">true</item>-->
+        <!--<item name="android:windowTranslucentNavigation">false</item>-->
+    </style>
+
 
 </resources>
