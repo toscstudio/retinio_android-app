@@ -9,6 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 
 import com.retinio.fragments.StorePhotoFragment;
+import com.retinio.ui.InkPageIndicator;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,6 +19,8 @@ import java.util.List;
  */
 
 public class StoreDetailActivity extends AppCompatActivity {
+
+    InkPageIndicator pageIndicator;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +38,10 @@ public class StoreDetailActivity extends AppCompatActivity {
             setupViewPager(viewPager);
             viewPager.setOffscreenPageLimit(2);
         }
+
+        pageIndicator = (InkPageIndicator) findViewById(R.id.indicator);
+        assert pageIndicator != null;
+        pageIndicator.setViewPager(viewPager);
     }
 
     private void setupViewPager(ViewPager viewPager) {

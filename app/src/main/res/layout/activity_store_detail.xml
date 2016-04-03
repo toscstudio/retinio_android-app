@@ -36,6 +36,15 @@
                 android:layout_height="match_parent"
                 android:background="#22000000" />
 
+            <com.retinio.ui.InkPageIndicator
+                android:id="@+id/indicator"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|center_horizontal"
+                android:layout_marginBottom="15dp"
+                app:currentPageIndicatorColor="@color/colorAccent"
+                app:pageIndicatorColor="@android:color/white" />
+
             <android.support.v7.widget.Toolbar
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
