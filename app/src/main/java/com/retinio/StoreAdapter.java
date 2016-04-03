@@ -5,6 +5,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.retinio.models.Store;
+
 import java.util.List;
 
 /**

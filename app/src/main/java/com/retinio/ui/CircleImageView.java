@@ -1,4 +1,4 @@
-package com.retinio;
+package com.retinio.ui;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -19,6 +19,8 @@ import android.support.annotation.ColorRes;
 import android.support.annotation.DrawableRes;
 import android.util.AttributeSet;
 import android.widget.ImageView;
+
+import com.retinio.R;
 
 public class CircleImageView extends ImageView {
 
