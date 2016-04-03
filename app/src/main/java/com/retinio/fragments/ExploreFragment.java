@@ -15,6 +15,7 @@ import com.retinio.MainActivity;
 import com.retinio.R;
 import com.retinio.adapters.StoreAdapter;
 import com.retinio.pojo.Store;
+import com.retinio.ui.SpacesItemDecoration;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -44,6 +45,7 @@ public class ExploreFragment extends Fragment {
         View rootView = inflater.inflate(R.layout.fragment_explore, container, false);
         mRecyclerView = (RecyclerView) rootView.findViewById(R.id.store_list);
         mRecyclerView.setAdapter(new StoreAdapter(createRandomList()));
+        mRecyclerView.addItemDecoration(new SpacesItemDecoration(40));
         return rootView;
     }
 
@@ -71,7 +73,7 @@ public class ExploreFragment extends Fragment {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.action_toggle_map:
-                ((MainActivity)getActivity()).transactFragment(new ExploreMapFragment());
+                ((MainActivity) getActivity()).transactFragment(new ExploreMapFragment());
                 break;
         }
         return super.onOptionsItemSelected(item);

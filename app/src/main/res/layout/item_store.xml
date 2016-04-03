@@ -1,76 +1,112 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="@android:color/white"
     android:orientation="vertical">
 
-    <ImageView
-        android:id="@+id/store_photo"
+    <FrameLayout
         android:layout_width="match_parent"
-        android:src="@drawable/storephoto"
-        android:layout_height="250dp" />
-    <ImageView
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:id="@+id/store_rating"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:src="@drawable/storerating"/>
+        android:layout_height="230dp">
 
-    <TextView
-        android:id="@+id/store_name"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/store_photo"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:textColor="#0000EE"
-        android:text="Store Name" />
+        <ImageView
+            android:id="@+id/store_photo"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:src="@drawable/storephoto" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#33000000" />
+
+        <TextView
+            android:id="@+id/store_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_margin="10dp"
+            android:singleLine="true"
+            android:text="Hacker House"
+            android:textColor="@android:color/white"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/store_rating"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right|top"
+            android:layout_margin="10dp"
+            android:background="@android:color/holo_green_dark"
+            android:padding="5dp"
+            android:text="4.8"
+            android:textColor="@android:color/white"
+            android:textSize="18sp" />
+
+
+    </FrameLayout>
+
 
     <TextView
         android:id="@+id/store_address"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/store_photo"
-        android:layout_marginTop="10dp"
-        android:text="Store Address" />
+        android:layout_margin="10dp"
+        android:maxLines="2"
+        android:text="I 2/8 Rohini Sector-16, New Delhi"
+        android:textColor="@android:color/black"
+        android:textSize="15sp" />
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/store_address"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="10dp"
         android:layout_marginTop="10dp"
         android:orientation="horizontal">
 
         <ImageView
             android:id="@+id/store_doc_available"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_below="@id/store_address" />
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/ic_location_on_black_48dp" />
 
         <ImageView
             android:id="@+id/store_buy_available"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_centerVertical="true"
             android:layout_marginLeft="10dp"
-            android:layout_marginStart="10dp" />
+            android:layout_marginStart="10dp"
+            android:layout_toRightOf="@id/store_doc_available"
+            android:src="@drawable/ic_location_on_black_48dp" />
+
+        <ImageView
+            android:id="@+id/store_location"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="5dp"
+            android:layout_toLeftOf="@+id/store_distance"
+            android:src="@drawable/ic_location_on_black_48dp" />
 
         <TextView
             android:id="@+id/store_distance"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:text="3 Km"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_gravity="end"
+            android:layout_marginRight="10dp"
             android:gravity="center"
-            android:layout_gravity="end"/>
+            android:text="3 Km"
+            android:textColor="@android:color/black" />
 
-        <ImageView
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:id="@+id/store_location"
-            android:src="@drawable/storelocation"
-             />
 
-    </LinearLayout>
+    </RelativeLayout>
 
-</RelativeLayout>
+</LinearLayout>

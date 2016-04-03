@@ -36,9 +36,9 @@ public class StoreAdapter extends RecyclerView.Adapter<StoreAdapter.ViewHolder> 
         holder.storeAddress.setText(storesList.get(position).getAddress());
         holder.docAvailable.setVisibility(View.GONE);
         holder.buyAvailable.setVisibility(View.GONE);
-        if(storesList.get(position).isBuyAvailable())
+        if (storesList.get(position).isBuyAvailable())
             holder.buyAvailable.setVisibility(View.VISIBLE);
-        if(storesList.get(position).isDocAvailable())
+        if (storesList.get(position).isDocAvailable())
             holder.docAvailable.setVisibility(View.VISIBLE);
 
     }
@@ -53,8 +53,8 @@ public class StoreAdapter extends RecyclerView.Adapter<StoreAdapter.ViewHolder> 
         TextView storeName;
         TextView storeAddress;
         TextView storeDistance;
+        TextView storeRating;
         ImageView storeLocation;
-        ImageView storeRating;
         ImageView storePhoto;
         ImageView docAvailable;
         ImageView buyAvailable;
@@ -66,7 +66,7 @@ public class StoreAdapter extends RecyclerView.Adapter<StoreAdapter.ViewHolder> 
             storeAddress = (TextView) itemView.findViewById(R.id.store_address);
             storeDistance = (TextView) itemView.findViewById(R.id.store_distance);
             storeLocation = (ImageView) itemView.findViewById(R.id.store_location);
-            storeRating = (ImageView) itemView.findViewById(R.id.store_rating);
+            storeRating = (TextView) itemView.findViewById(R.id.store_rating);
             storePhoto = (ImageView) itemView.findViewById(R.id.store_photo);
             docAvailable = (ImageView) itemView.findViewById(R.id.store_doc_available);
             buyAvailable = (ImageView) itemView.findViewById(R.id.store_buy_available);
