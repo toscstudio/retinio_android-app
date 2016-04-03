@@ -1,4 +1,4 @@
-image: lerk/android
+image: rafakob/android
 
 stages:
   - build
