@@ -14,6 +14,10 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import com.retinio.fragments.AppointmentsFragment;
+import com.retinio.fragments.DealsFragment;
+import com.retinio.fragments.ExploreFragment;
+
 public class MainActivity extends AppCompatActivity {
 
     private DrawerLayout mDrawer;
@@ -56,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
                 }
                 try {
                     fragment = (Fragment) fragmentClass.newInstance();
-                    fragmentManager.beginTransaction().replace(R.id.main_content, fragment).commit();
+                    transactFragment(fragment);
                     item.setChecked(true);
                     // Set action bar title
                     setTitle(item.getTitle());
@@ -97,5 +101,9 @@ public class MainActivity extends AppCompatActivity {
             return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    public void transactFragment(Fragment fragment) {
+        fragmentManager.beginTransaction().replace(R.id.main_content, fragment).commit();
     }
 }

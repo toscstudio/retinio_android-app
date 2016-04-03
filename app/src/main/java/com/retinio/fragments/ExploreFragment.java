@@ -1,12 +1,20 @@
-package com.retinio;
+package com.retinio.fragments;
 
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.retinio.MainActivity;
+import com.retinio.R;
+import com.retinio.adapters.StoreAdapter;
+import com.retinio.pojo.Store;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,6 +31,11 @@ public class ExploreFragment extends Fragment {
         // Required empty public constructor
     }
 
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setHasOptionsMenu(true);
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -36,7 +49,7 @@ public class ExploreFragment extends Fragment {
 
     private List<Store> createRandomList() {
         List<Store> storeList = new ArrayList<>();
-        for(int i = 10; i > 0; i--) {
+        for (int i = 10; i > 0; i--) {
             Store s = new Store();
             s.setName("Eye Trends");
             s.setAddress("B-1/113, Rohini, New Delhi");
@@ -46,5 +59,21 @@ public class ExploreFragment extends Fragment {
             storeList.add(s);
         }
         return storeList;
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        super.onCreateOptionsMenu(menu, inflater);
+        inflater.inflate(R.menu.menu_explore_maptoggle, menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.action_toggle_map:
+                ((MainActivity)getActivity()).transactFragment(new ExploreMapFragment());
+                break;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

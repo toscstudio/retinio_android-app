@@ -1,4 +1,4 @@
-package com.retinio;
+package com.retinio.pojo;
 
 /**
  * Created by prempal on 30/3/16.
