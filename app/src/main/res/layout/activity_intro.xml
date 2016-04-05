@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".IntroActivity">
+    tools:context=".login.IntroActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -23,6 +23,16 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:parallaxVelocity="0.4" />
+
+        <android.support.v7.widget.AppCompatButton
+            android:id="@+id/btn_skip"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:textColor="@android:color/white"
+            android:text="SKIP"
+            android:background="?android:attr/selectableItemBackground"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
 
     </RelativeLayout>
 

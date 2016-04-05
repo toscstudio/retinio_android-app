@@ -9,6 +9,7 @@
     </style>
 
     <style name="IntroTheme" parent="AppTheme">
+        <item name="android:windowAnimationStyle">@null</item>
         <!--<item name="android:windowTranslucentStatus">true</item>-->
         <!--<item name="android:statusBarColor">@android:color/transparent</item>-->
     </style>

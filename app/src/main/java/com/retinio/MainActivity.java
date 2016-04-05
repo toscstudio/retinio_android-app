@@ -1,5 +1,6 @@
 package com.retinio;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.NavigationView;
@@ -17,6 +18,8 @@ import android.view.View;
 import com.retinio.fragments.AppointmentsFragment;
 import com.retinio.fragments.DealsFragment;
 import com.retinio.fragments.ExploreFragment;
+import com.retinio.login.IntroActivity;
+import com.retinio.login.OnboardHelper;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -27,6 +30,14 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        if (OnboardHelper.isFirstAppUsage()) {
+            Intent introActIntent = new Intent(getApplicationContext(), IntroActivity.class);
+            startActivity(introActIntent);
+            finish();
+        }
+
+
+
         setContentView(R.layout.activity_main);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
