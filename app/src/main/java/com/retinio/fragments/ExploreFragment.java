@@ -14,11 +14,8 @@ import android.view.ViewGroup;
 import com.retinio.MainActivity;
 import com.retinio.R;
 import com.retinio.adapters.StoreAdapter;
-import com.retinio.pojo.Store;
+import com.retinio.api.RetinioDataApi;
 import com.retinio.ui.SpacesItemDecoration;
-
-import java.util.ArrayList;
-import java.util.List;
 
 
 /**
@@ -44,24 +41,12 @@ public class ExploreFragment extends Fragment {
         // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.fragment_explore, container, false);
         mRecyclerView = (RecyclerView) rootView.findViewById(R.id.store_list);
-        mRecyclerView.setAdapter(new StoreAdapter(getActivity(), createRandomList()));
+        mRecyclerView.setAdapter(new StoreAdapter(getActivity(), RetinioDataApi.getStores()));
         mRecyclerView.addItemDecoration(new SpacesItemDecoration(40));
         return rootView;
     }
 
-    private List<Store> createRandomList() {
-        List<Store> storeList = new ArrayList<>();
-        for (int i = 10; i > 0; i--) {
-            Store s = new Store();
-            s.setName("Eye Trends");
-            s.setAddress("B-1/113, Rohini, New Delhi");
-            s.setBuyAvailable(true);
-            s.setDocAvailable(true);
-            s.setOfferAvailable(true);
-            storeList.add(s);
-        }
-        return storeList;
-    }
+
 
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
