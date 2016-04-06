@@ -16,6 +16,7 @@ import android.widget.Button;
 import com.github.hmallet.realparallaxandroid.RealHorizontalScrollView;
 import com.github.hmallet.realparallaxandroid.RealViewPager;
 import com.retinio.R;
+import com.retinio.ui.InkPageIndicator;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -42,9 +43,9 @@ public class IntroActivity extends AppCompatActivity {
 
         List<Fragment> fragments = new ArrayList<>();
 
-        fragments.add(new IntroFragment());
-        fragments.add(new IntroFragment());
-        fragments.add(new IntroFragment());
+        for (int i = 0; i < 4; i++) {
+            fragments.add(IntroFragment.newInstance(i));
+        }
 
         Display display = getWindowManager().getDefaultDisplay();
         final Point size = new Point();
@@ -55,6 +56,10 @@ public class IntroActivity extends AppCompatActivity {
         assert realViewPager != null;
         realViewPager.setAdapter(realViewPagerAdapter);
         realViewPager.configure(realHorizontalScrollView);
+
+        InkPageIndicator pageIndicator = (InkPageIndicator) findViewById(R.id.indicator);
+        assert pageIndicator != null;
+        pageIndicator.setViewPager(realViewPager);
 
         skipButton.setOnClickListener(new View.OnClickListener() {
             @Override
