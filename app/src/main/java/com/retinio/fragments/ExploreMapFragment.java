@@ -34,7 +34,7 @@ public class ExploreMapFragment extends Fragment {
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         super.onCreateOptionsMenu(menu, inflater);
-        inflater.inflate(R.menu.menu_explore_maptoggle, menu);
+        inflater.inflate(R.menu.menu_explore, menu);
         menu.findItem(R.id.action_toggle_map).setIcon(R.drawable.ic_view_list);
     }
 
