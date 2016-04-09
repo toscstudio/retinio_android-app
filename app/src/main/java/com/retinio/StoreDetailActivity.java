@@ -60,6 +60,13 @@ public class StoreDetailActivity extends AppCompatActivity {
                 bookAppointment();
             }
         });
+
+        fabWriteReview.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                writeReview();
+            }
+        });
     }
 
     private void setupViewPager(ViewPager viewPager) {
@@ -122,5 +129,9 @@ public class StoreDetailActivity extends AppCompatActivity {
 
     private void bookAppointment() {
         startActivity(new Intent(StoreDetailActivity.this, BookAppointmentActivity.class));
+    }
+
+    private void writeReview() {
+        startActivity(new Intent(StoreDetailActivity.this, WriteReviewActivity.class));
     }
 }

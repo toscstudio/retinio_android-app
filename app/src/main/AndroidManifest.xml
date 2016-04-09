@@ -18,6 +18,7 @@
         <activity android:name=".login.LoginActivity"></activity>
 
         <activity android:name=".BookAppointmentActivity" />
+        <activity android:name=".WriteReviewActivity" />
         <activity
             android:name=".login.IntroActivity"
             android:theme="@style/IntroTheme"></activity>
