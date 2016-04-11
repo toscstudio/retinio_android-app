@@ -18,6 +18,7 @@
             android:scrollbars="none"
             app:src="@drawable/intro" />
 
+
         <com.github.hmallet.realparallaxandroid.RealViewPager
             android:id="@+id/main_view_pager"
             android:layout_width="match_parent"
@@ -35,5 +36,4 @@
             android:textColor="@android:color/white" />
 
     </RelativeLayout>
-
 </android.support.design.widget.CoordinatorLayout>
