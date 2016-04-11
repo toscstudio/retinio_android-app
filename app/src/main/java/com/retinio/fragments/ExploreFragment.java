@@ -28,6 +28,15 @@ public class ExploreFragment extends Fragment {
 
     private RecyclerView mRecyclerView;
 
+    public static ExploreFragment newInstance() {
+
+        Bundle args = new Bundle();
+
+        ExploreFragment fragment = new ExploreFragment();
+        fragment.setArguments(args);
+        return fragment;
+    }
+
     public ExploreFragment() {
         // Required empty public constructor
     }

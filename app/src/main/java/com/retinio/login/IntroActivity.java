@@ -8,6 +8,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.PagerAdapter;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Display;
 import android.view.View;
@@ -43,6 +44,7 @@ public class IntroActivity extends AppCompatActivity {
 
         List<Fragment> fragments = new ArrayList<>();
 
+        //TODO : Define the '4' in some variable.
         for (int i = 0; i < 4; i++) {
             fragments.add(IntroFragment.newInstance(i));
         }
@@ -56,6 +58,8 @@ public class IntroActivity extends AppCompatActivity {
         assert realViewPager != null;
         realViewPager.setAdapter(realViewPagerAdapter);
         realViewPager.configure(realHorizontalScrollView);
+
+        realViewPager.addOnPageChangeListener(new LastPageSkipListener());
 
         InkPageIndicator pageIndicator = (InkPageIndicator) findViewById(R.id.indicator);
         if (pageIndicator != null)
@@ -90,6 +94,19 @@ public class IntroActivity extends AppCompatActivity {
         @Override
         public int getCount() {
             return this.fragments.size();
+        }
+    }
+
+    private class LastPageSkipListener extends ViewPager.SimpleOnPageChangeListener {
+        @Override
+        public void onPageSelected(int position) {
+            //TODO: Do not hardcode 3, find what is last page in code
+            if (position == 3) {
+                skipButton.setText(">");
+            } else {
+                skipButton.setText("SKIP");
+            }
+            super.onPageSelected(position);
         }
     }
 }

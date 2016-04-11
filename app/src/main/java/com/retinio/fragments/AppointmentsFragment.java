@@ -15,6 +15,15 @@ import com.retinio.R;
  */
 public class AppointmentsFragment extends Fragment {
 
+    public static AppointmentsFragment newInstance() {
+
+        Bundle args = new Bundle();
+
+        AppointmentsFragment fragment = new AppointmentsFragment();
+        fragment.setArguments(args);
+        return fragment;
+    }
+
 
     public AppointmentsFragment() {
         // Required empty public constructor
