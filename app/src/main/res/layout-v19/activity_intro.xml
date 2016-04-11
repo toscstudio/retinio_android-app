@@ -36,4 +36,14 @@
 
     </RelativeLayout>
 
+    <com.retinio.ui.InkPageIndicator
+        android:id="@+id/indicator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center_horizontal"
+        android:layout_marginBottom="15dp"
+        android:background="@android:color/transparent"
+        app:currentPageIndicatorColor="@color/colorAccent"
+        app:pageIndicatorColor="@android:color/white" />
+
 </android.support.design.widget.CoordinatorLayout>

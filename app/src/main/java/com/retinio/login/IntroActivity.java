@@ -58,8 +58,8 @@ public class IntroActivity extends AppCompatActivity {
         realViewPager.configure(realHorizontalScrollView);
 
         InkPageIndicator pageIndicator = (InkPageIndicator) findViewById(R.id.indicator);
-        assert pageIndicator != null;
-        pageIndicator.setViewPager(realViewPager);
+        if (pageIndicator != null)
+            pageIndicator.setViewPager(realViewPager);
 
         skipButton.setOnClickListener(new View.OnClickListener() {
             @Override
