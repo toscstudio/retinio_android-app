@@ -10,13 +10,21 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
 import com.retinio.MainActivity;
 import com.retinio.R;
 
 /**
  * Created by naman on 03/04/16.
  */
-public class ExploreMapFragment extends Fragment {
+public class ExploreMapFragment extends Fragment implements OnMapReadyCallback{
+
+    private GoogleMap mMap;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -28,6 +36,9 @@ public class ExploreMapFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_explore_map, container, false);
+        SupportMapFragment mapFragment = (SupportMapFragment) getChildFragmentManager()
+                .findFragmentById(R.id.map);
+        mapFragment.getMapAsync(this);
         return rootView;
     }
 
@@ -46,5 +57,14 @@ public class ExploreMapFragment extends Fragment {
                 break;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onMapReady(GoogleMap googleMap) {
+        mMap = googleMap;
+        //TODO: call RetinioDataApi.getStores(), iterate over the data and add markers accordingly
+        LatLng cp = new LatLng(28.6315, 77.2167);
+        mMap.addMarker(new MarkerOptions().position(cp).title("Eye Trends"));
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(cp));
     }
 }
