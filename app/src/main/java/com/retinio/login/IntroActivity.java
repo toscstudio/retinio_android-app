@@ -2,6 +2,7 @@ package com.retinio.login;
 
 import android.content.Intent;
 import android.graphics.Point;
+import android.graphics.drawable.AnimationDrawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -13,6 +14,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Display;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 
 import com.github.hmallet.realparallaxandroid.RealHorizontalScrollView;
 import com.github.hmallet.realparallaxandroid.RealViewPager;
@@ -25,6 +27,7 @@ import java.util.List;
 public class IntroActivity extends AppCompatActivity {
 
     Button skipButton;
+    AnimationDrawable glassAnim;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +41,10 @@ public class IntroActivity extends AppCompatActivity {
         }
 
         skipButton = (Button) findViewById(R.id.btn_skip);
+        if (findViewById(R.id.intro_glass_animator) != null) {
+            glassAnim = (AnimationDrawable) ((ImageView) findViewById(R.id.intro_glass_animator)).getDrawable();
+        }
+        glassAnim.start();
 
         RealHorizontalScrollView realHorizontalScrollView = (RealHorizontalScrollView) findViewById(R.id.main_horizontal_scrollview);
         final RealViewPager realViewPager = (RealViewPager) findViewById(R.id.main_view_pager);

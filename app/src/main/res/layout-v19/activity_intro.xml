@@ -34,6 +34,14 @@
             android:text="SKIP"
             android:textColor="@android:color/white" />
 
+        <ImageView
+            android:scaleType="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/intro_glass_animator"
+            android:layout_centerInParent="true"
+            android:src="@drawable/glasses_animator" />
+
     </RelativeLayout>
 
     <com.retinio.ui.InkPageIndicator
@@ -46,10 +54,10 @@
         app:currentPageIndicatorColor="@color/colorAccent"
         app:pageIndicatorColor="@android:color/white" />
 
-    <include layout="@layout/layoutfragment_intro_heads"
-        android:layout_height="match_parent"
-        android:layout_width="match_parent"
-        android:layout_marginTop="24dp"
-        android:layout_marginBottom="120dp"/>
+    <!--<include layout="@layout/layoutfragment_intro_heads"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_marginTop="24dp"-->
+        <!--android:layout_marginBottom="120dp"/>-->
 
 </FrameLayout>
