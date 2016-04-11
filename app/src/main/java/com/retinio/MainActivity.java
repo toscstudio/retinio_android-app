@@ -90,6 +90,12 @@ public class MainActivity extends AppCompatActivity {
         });
 
         View headerLayout = navigationView.getHeaderView(0);
+        headerLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this,ProfileActivity.class));
+            }
+        });
 
         if (savedInstanceState == null) {
             ExploreFragment fragment = new ExploreFragment();
