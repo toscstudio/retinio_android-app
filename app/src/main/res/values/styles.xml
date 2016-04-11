@@ -9,8 +9,16 @@
     </style>
 
     <style name="IntroTheme" parent="AppTheme">
+        <item name="android:windowAnimationStyle">@null</item>
         <!--<item name="android:windowTranslucentStatus">true</item>-->
         <!--<item name="android:statusBarColor">@android:color/transparent</item>-->
+    </style>
+
+
+    <style name="LoginMainTextTheme" parent="TextAppearance.AppCompat.Large.Inverse">
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textSize">40dp</item>
+
     </style>
 
     <style name="AppTheme.FullScreen.Light" parent="AppTheme">

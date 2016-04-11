@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".IntroActivity">
+    tools:context=".login.IntroActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -13,7 +13,7 @@
 
         <com.github.hmallet.realparallaxandroid.RealHorizontalScrollView
             android:id="@+id/main_horizontal_scrollview"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:scrollbars="none"
             app:src="@drawable/intro" />
@@ -22,8 +22,28 @@
             android:id="@+id/main_view_pager"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:parallaxVelocity="0.4" />
+            app:parallaxVelocity="0.6" />
+
+        <Button
+            android:id="@+id/btn_skip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:background="?android:attr/selectableItemBackground"
+            android:text="SKIP"
+            android:textColor="@android:color/white" />
 
     </RelativeLayout>
+
+    <com.retinio.ui.InkPageIndicator
+        android:id="@+id/indicator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center_horizontal"
+        android:layout_marginBottom="15dp"
+        android:background="@android:color/transparent"
+        app:currentPageIndicatorColor="@color/colorAccent"
+        app:pageIndicatorColor="@android:color/white" />
 
 </android.support.design.widget.CoordinatorLayout>

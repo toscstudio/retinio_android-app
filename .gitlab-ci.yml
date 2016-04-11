@@ -1,16 +1,25 @@
-image: rafakob/android
+image: bitriseio/docker-android
 
 stages:
   - build
   - test
   - deploy
 
+before_script:
+  - export GRADLE_USER_HOME=`pwd`/.gradle
+
 cache:
   paths:
-    - "$HOME/.gradle/caches/"
-    - "$HOME/.gradle/wrapper/"
+    - ".gradle/caches"
+    - ".gradle/wrapper"
 
 buildAndroid:
   stage: build
   script:
     - ./gradlew assembleDebug
+    - cp app/build/outputs/apk/app-mockdata-debug.apk ./
+    - cp app/build/outputs/apk/app-productionAPI-debug.apk ./
+  artifacts:
+    paths:
+      - app-mockdata-debug.apk
+      - app-productionAPI-debug.apk

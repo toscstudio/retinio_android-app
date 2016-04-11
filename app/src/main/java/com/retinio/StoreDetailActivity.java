@@ -1,5 +1,6 @@
 package com.retinio;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -9,9 +10,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 import com.retinio.fragments.StorePhotoFragment;
 import com.retinio.ui.InkPageIndicator;
+
+import net.i2p.android.ext.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,6 +27,7 @@ import java.util.List;
 public class StoreDetailActivity extends AppCompatActivity {
 
     InkPageIndicator pageIndicator;
+    FloatingActionButton fabBookApointment, fabWriteReview;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +50,23 @@ public class StoreDetailActivity extends AppCompatActivity {
         pageIndicator = (InkPageIndicator) findViewById(R.id.indicator);
         assert pageIndicator != null;
         pageIndicator.setViewPager(viewPager);
+
+        fabBookApointment = (FloatingActionButton) findViewById(R.id.fab_book_appointment);
+        fabWriteReview = (FloatingActionButton) findViewById(R.id.fab_write_review);
+
+        fabBookApointment.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                bookAppointment();
+            }
+        });
+
+        fabWriteReview.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                writeReview();
+            }
+        });
     }
 
     private void setupViewPager(ViewPager viewPager) {
@@ -95,9 +117,21 @@ public class StoreDetailActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
+            case android.R.id.home:
+                super.onBackPressed();
+                break;
             case R.id.action_book_appointment:
+                bookAppointment();
                 break;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    private void bookAppointment() {
+        startActivity(new Intent(StoreDetailActivity.this, BookAppointmentActivity.class));
+    }
+
+    private void writeReview() {
+        startActivity(new Intent(StoreDetailActivity.this, WriteReviewActivity.class));
     }
 }

@@ -1,9 +1,12 @@
 package com.retinio.fragments;
 
 
+import android.app.SearchManager;
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.SearchView;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -14,11 +17,8 @@ import android.view.ViewGroup;
 import com.retinio.MainActivity;
 import com.retinio.R;
 import com.retinio.adapters.StoreAdapter;
-import com.retinio.pojo.Store;
+import com.retinio.api.RetinioDataApi;
 import com.retinio.ui.SpacesItemDecoration;
-
-import java.util.ArrayList;
-import java.util.List;
 
 
 /**
@@ -44,29 +44,31 @@ public class ExploreFragment extends Fragment {
         // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.fragment_explore, container, false);
         mRecyclerView = (RecyclerView) rootView.findViewById(R.id.store_list);
-        mRecyclerView.setAdapter(new StoreAdapter(getActivity(), createRandomList()));
+        mRecyclerView.setAdapter(new StoreAdapter(getActivity(), RetinioDataApi.getStores()));
         mRecyclerView.addItemDecoration(new SpacesItemDecoration(40));
         return rootView;
     }
 
-    private List<Store> createRandomList() {
-        List<Store> storeList = new ArrayList<>();
-        for (int i = 10; i > 0; i--) {
-            Store s = new Store();
-            s.setName("Eye Trends");
-            s.setAddress("B-1/113, Rohini, New Delhi");
-            s.setBuyAvailable(true);
-            s.setDocAvailable(true);
-            s.setOfferAvailable(true);
-            storeList.add(s);
-        }
-        return storeList;
-    }
 
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         super.onCreateOptionsMenu(menu, inflater);
-        inflater.inflate(R.menu.menu_explore_maptoggle, menu);
+        inflater.inflate(R.menu.menu_explore, menu);
+
+        SearchManager manager = (SearchManager) getActivity().getSystemService(Context.SEARCH_SERVICE);
+        SearchView search = (SearchView) menu.findItem(R.id.action_search).getActionView();
+        search.setSearchableInfo(manager.getSearchableInfo(getActivity().getComponentName()));
+        search.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                return false;
+            }
+        });
     }
 
     @Override

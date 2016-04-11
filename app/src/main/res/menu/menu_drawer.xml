@@ -4,7 +4,8 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_explore"
-            android:title="Explore" />
+            android:title="Explore"
+            android:checked="true"/>
         <item
             android:id="@+id/nav_deals"
             android:title="Deals" />
