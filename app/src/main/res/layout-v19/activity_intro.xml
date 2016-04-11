@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -16,7 +16,7 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:scrollbars="none"
-            app:src="@drawable/intro" />
+            app:src="@drawable/intro_tinted" />
 
         <com.github.hmallet.realparallaxandroid.RealViewPager
             android:id="@+id/main_view_pager"
@@ -46,4 +46,9 @@
         app:currentPageIndicatorColor="@color/colorAccent"
         app:pageIndicatorColor="@android:color/white" />
 
-</android.support.design.widget.CoordinatorLayout>
+    <include layout="@layout/layoutfragment_intro_heads"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:layout_marginBottom="120dp"/>
+
+</FrameLayout>
