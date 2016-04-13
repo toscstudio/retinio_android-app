@@ -2,16 +2,19 @@ package com.retinio.login;
 
 import android.content.Intent;
 import android.graphics.Point;
+import android.graphics.drawable.AnimationDrawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.PagerAdapter;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Display;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 
 import com.github.hmallet.realparallaxandroid.RealHorizontalScrollView;
 import com.github.hmallet.realparallaxandroid.RealViewPager;
@@ -24,6 +27,7 @@ import java.util.List;
 public class IntroActivity extends AppCompatActivity {
 
     Button skipButton;
+    AnimationDrawable glassAnim;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,12 +41,17 @@ public class IntroActivity extends AppCompatActivity {
         }
 
         skipButton = (Button) findViewById(R.id.btn_skip);
+        if (findViewById(R.id.intro_glass_animator) != null) {
+            glassAnim = (AnimationDrawable) ((ImageView) findViewById(R.id.intro_glass_animator)).getDrawable();
+        }
+        glassAnim.start();
 
         RealHorizontalScrollView realHorizontalScrollView = (RealHorizontalScrollView) findViewById(R.id.main_horizontal_scrollview);
         final RealViewPager realViewPager = (RealViewPager) findViewById(R.id.main_view_pager);
 
         List<Fragment> fragments = new ArrayList<>();
 
+        //TODO : Define the '4' in some variable.
         for (int i = 0; i < 4; i++) {
             fragments.add(IntroFragment.newInstance(i));
         }
@@ -56,6 +65,8 @@ public class IntroActivity extends AppCompatActivity {
         assert realViewPager != null;
         realViewPager.setAdapter(realViewPagerAdapter);
         realViewPager.configure(realHorizontalScrollView);
+
+        realViewPager.addOnPageChangeListener(new LastPageSkipListener());
 
         InkPageIndicator pageIndicator = (InkPageIndicator) findViewById(R.id.indicator);
         if (pageIndicator != null)
@@ -90,6 +101,19 @@ public class IntroActivity extends AppCompatActivity {
         @Override
         public int getCount() {
             return this.fragments.size();
+        }
+    }
+
+    private class LastPageSkipListener extends ViewPager.SimpleOnPageChangeListener {
+        @Override
+        public void onPageSelected(int position) {
+            //TODO: Do not hardcode 3, find what is last page in code
+            if (position == 3) {
+                skipButton.setText(">");
+            } else {
+                skipButton.setText("SKIP");
+            }
+            super.onPageSelected(position);
         }
     }
 }

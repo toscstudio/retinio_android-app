@@ -11,6 +11,15 @@ android {
         versionName "1.0"
     }
 
+    signingConfigs {
+        debug {
+            storeFile file("../keystore.jks")
+            storePassword "toscstudio"
+            keyAlias "toscstudio"
+            keyPassword "toscstudio"
+        }
+    }
+
     testOptions {
         unitTests.returnDefaultValues = true
     }
@@ -20,7 +29,8 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
         debug {
-            testCoverageEnabled true
+            //testCoverageEnabled true
+            signingConfig signingConfigs.debug
         }
     }
     productFlavors {
@@ -35,12 +45,13 @@ android {
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     testCompile 'junit:junit:4.12'
-    compile 'com.android.support:appcompat-v7:23.2.1'
-    compile 'com.android.support:recyclerview-v7:23.2.1'
-    compile 'com.android.support:support-v4:23.2.1'
-    compile 'com.android.support:design:23.2.1'
+    compile 'com.android.support:appcompat-v7:23.+'
+    compile 'com.android.support:recyclerview-v7:23.+'
+    compile 'com.android.support:support-v4:23.+'
+    compile 'com.android.support:design:23.+'
     compile 'com.squareup.retrofit2:retrofit:2.0.0'
     compile 'com.squareup.retrofit2:converter-gson:2.0.0'
     compile 'com.squareup.picasso:picasso:2.5.2'
     compile 'net.i2p.android.ext:floatingactionbutton:1.10.0'
+    compile 'com.google.android.gms:play-services-maps:8.4.0'
 }

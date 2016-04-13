@@ -82,6 +82,7 @@ public class MainActivity extends AppCompatActivity {
                     // Close the navigation drawer
                     mDrawer.closeDrawers();
                 } catch (Exception e) {
+                    //TODO: Check for only InstantiationException
                     e.printStackTrace();
                 }
 
