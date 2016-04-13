@@ -65,6 +65,6 @@ public class ExploreMapFragment extends Fragment implements OnMapReadyCallback{
         //TODO: call RetinioDataApi.getStores(), iterate over the data and add markers accordingly
         LatLng cp = new LatLng(28.6315, 77.2167);
         mMap.addMarker(new MarkerOptions().position(cp).title("Eye Trends"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(cp));
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(cp, 14));
     }
 }
