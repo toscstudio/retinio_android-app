@@ -15,6 +15,15 @@ import com.retinio.R;
  */
 public class DealsFragment extends Fragment {
 
+    public static DealsFragment newInstance() {
+
+        Bundle args = new Bundle();
+
+        DealsFragment fragment = new DealsFragment();
+        fragment.setArguments(args);
+        return fragment;
+    }
+
 
     public DealsFragment() {
         // Required empty public constructor
