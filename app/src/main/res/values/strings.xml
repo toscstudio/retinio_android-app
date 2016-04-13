@@ -5,4 +5,8 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="intro_sentence_first">Discover optical stores and eye clinics near you</string>
+    <string name="intro_sentence_second">Book appointments for your next eye checkup</string>
+    <string name="intro_sentence_third">Look for the store with your favourite eyewear brand</string>
+    <string name="intro_sentence_fourth">Browse through best offers in optical stores near you</string>
 </resources>
