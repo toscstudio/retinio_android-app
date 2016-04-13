@@ -1,5 +1,6 @@
 package com.retinio.fragments;
 
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -34,7 +35,9 @@ public class StorePhotoFragment extends Fragment {
         ImageView imageView = (ImageView) rootView.findViewById(R.id.store_photo);
         position = getArguments().getInt("position");
         if (position == 0) {
-            imageView.setTransitionName("store_photo");
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                imageView.setTransitionName("store_photo");
+            }
         }
 
         //TODO load uri in imageView

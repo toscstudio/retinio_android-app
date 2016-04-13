@@ -24,8 +24,6 @@ import com.retinio.R;
  */
 public class ExploreMapFragment extends Fragment implements OnMapReadyCallback{
 
-    private GoogleMap mMap;
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -61,10 +59,9 @@ public class ExploreMapFragment extends Fragment implements OnMapReadyCallback{
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
-        mMap = googleMap;
         //TODO: call RetinioDataApi.getStores(), iterate over the data and add markers accordingly
         LatLng cp = new LatLng(28.6315, 77.2167);
-        mMap.addMarker(new MarkerOptions().position(cp).title("Eye Trends"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(cp, 14));
+        googleMap.addMarker(new MarkerOptions().position(cp).title("Eye Trends"));
+        googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(cp, 14));
     }
 }

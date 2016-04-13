@@ -2,6 +2,7 @@ package com.retinio.adapters;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.os.Build;
 import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -74,7 +75,9 @@ public class StoreAdapter extends RecyclerView.Adapter<StoreAdapter.ViewHolder> 
             storeLocation = (ImageView) itemView.findViewById(R.id.store_location);
             storeRating = (TextView) itemView.findViewById(R.id.store_rating);
             storePhoto = (ImageView) itemView.findViewById(R.id.store_photo);
-            storePhoto.setTransitionName("store_photo");
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                storePhoto.setTransitionName("store_photo");
+            }
             docAvailable = (ImageView) itemView.findViewById(R.id.store_doc_available);
             buyAvailable = (ImageView) itemView.findViewById(R.id.store_buy_available);
 
@@ -84,7 +87,9 @@ public class StoreAdapter extends RecyclerView.Adapter<StoreAdapter.ViewHolder> 
                     Intent intent = new Intent(context, StoreDetailActivity.class);
                     ActivityOptionsCompat options = ActivityOptionsCompat.
                             makeSceneTransitionAnimation(context, storePhoto, "store_photo");
-                    context.startActivity(intent, options.toBundle());
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+                        context.startActivity(intent, options.toBundle());
+                    }
                 }
             });
 

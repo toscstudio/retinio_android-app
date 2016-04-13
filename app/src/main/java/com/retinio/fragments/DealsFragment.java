@@ -17,8 +17,6 @@ import com.retinio.adapters.DealAdapter;
  */
 public class DealsFragment extends Fragment {
 
-    private RecyclerView mRecyclerView;
-
     public DealsFragment() {
         // Required empty public constructor
     }
@@ -34,7 +32,7 @@ public class DealsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_deals, container, false);
-        mRecyclerView = (RecyclerView) rootView.findViewById(R.id.deals_list);
+        RecyclerView mRecyclerView = (RecyclerView) rootView.findViewById(R.id.deals_list);
         mRecyclerView.setAdapter(new DealAdapter());
         return rootView;
     }

@@ -12,18 +12,12 @@ import com.retinio.R;
 
 public class LoginActivity extends AppCompatActivity {
 
-    private Button fbLoginButton;
-    private Button gplusLoginButton;
-    private SharedPreferences settings;
-
-    private SharedPreferences.Editor editor;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        settings = getSharedPreferences("Login", MODE_PRIVATE);
-        editor = settings.edit();
+        SharedPreferences settings = getSharedPreferences("Login", MODE_PRIVATE);
+        SharedPreferences.Editor editor = settings.edit();
 
         if(settings.getBoolean("Logged_in", false)) {
             Intent intent = new Intent(LoginActivity.this, MainActivity.class);
@@ -31,37 +25,42 @@ public class LoginActivity extends AppCompatActivity {
             finish();
         }
 
-        fbLoginButton = (Button) findViewById(R.id.login_with_fb);
-        gplusLoginButton = (Button) findViewById(R.id.login_with_gplus);
-        gplusLoginButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if(loginWithGplus()) {
-                    SharedPreferences settings = getSharedPreferences("Login", MODE_PRIVATE);
-                    SharedPreferences.Editor editor = settings.edit();
-                    editor.putBoolean("Logged_in", true);
-                    editor.apply();
-                    Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                    startActivity(intent);
-                    finish();
-                }
-            }
-        });
+        Button fbLoginButton = (Button) findViewById(R.id.login_with_fb);
+        Button gplusLoginButton = (Button) findViewById(R.id.login_with_gplus);
 
-        fbLoginButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if(loginWithFB()) {
-                    SharedPreferences settings = getSharedPreferences("Login", MODE_PRIVATE);
-                    SharedPreferences.Editor editor = settings.edit();
-                    editor.putBoolean("Logged_in", true);
-                    editor.apply();
-                    Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                    startActivity(intent);
-                    finish();
+        if (gplusLoginButton != null) {
+            gplusLoginButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if(loginWithGplus()) {
+                        SharedPreferences settings = getSharedPreferences("Login", MODE_PRIVATE);
+                        SharedPreferences.Editor editor = settings.edit();
+                        editor.putBoolean("Logged_in", true);
+                        editor.apply();
+                        Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                        startActivity(intent);
+                        finish();
+                    }
                 }
-            }
-        });
+            });
+        }
+
+        if (fbLoginButton != null) {
+            fbLoginButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if(loginWithFB()) {
+                        SharedPreferences settings = getSharedPreferences("Login", MODE_PRIVATE);
+                        SharedPreferences.Editor editor = settings.edit();
+                        editor.putBoolean("Logged_in", true);
+                        editor.apply();
+                        Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                        startActivity(intent);
+                        finish();
+                    }
+                }
+            });
+        }
     }
 
 

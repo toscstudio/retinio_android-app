@@ -111,7 +111,7 @@ public class IntroActivity extends AppCompatActivity {
             if (position == 3) {
                 skipButton.setText(">");
             } else {
-                skipButton.setText("SKIP");
+                skipButton.setText(R.string.intro_skip);
             }
             super.onPageSelected(position);
         }
