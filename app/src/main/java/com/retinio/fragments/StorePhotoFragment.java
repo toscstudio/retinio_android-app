@@ -15,10 +15,13 @@ import com.retinio.R;
  */
 public class StorePhotoFragment extends Fragment {
 
-    public static StorePhotoFragment newInstance(String uri) {
+    int position;
+
+    public static StorePhotoFragment newInstance(String uri, int position) {
         StorePhotoFragment fragment = new StorePhotoFragment();
         Bundle args = new Bundle();
         args.putString("image_uri", uri);
+        args.putInt("position", position);
         fragment.setArguments(args);
         return fragment;
     }
@@ -29,6 +32,10 @@ public class StorePhotoFragment extends Fragment {
         View rootView = inflater.inflate(R.layout.fragment_viewpager_store_photo, container, false);
 
         ImageView imageView = (ImageView) rootView.findViewById(R.id.store_photo);
+        position = getArguments().getInt("position");
+        if (position == 0) {
+            imageView.setTransitionName("store_photo");
+        }
 
         //TODO load uri in imageView
 
