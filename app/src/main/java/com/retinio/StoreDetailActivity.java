@@ -71,10 +71,10 @@ public class StoreDetailActivity extends AppCompatActivity {
 
     private void setupViewPager(ViewPager viewPager) {
         Adapter adapter = new Adapter(getSupportFragmentManager());
-        adapter.addFragment(StorePhotoFragment.newInstance(""), "");
-        adapter.addFragment(StorePhotoFragment.newInstance(""), "");
-        adapter.addFragment(StorePhotoFragment.newInstance(""), "");
-        adapter.addFragment(StorePhotoFragment.newInstance(""), "");
+        adapter.addFragment(StorePhotoFragment.newInstance("", 0), "");
+        adapter.addFragment(StorePhotoFragment.newInstance("", 1), "");
+        adapter.addFragment(StorePhotoFragment.newInstance("", 2), "");
+        adapter.addFragment(StorePhotoFragment.newInstance("", 3), "");
 
         viewPager.setAdapter(adapter);
     }

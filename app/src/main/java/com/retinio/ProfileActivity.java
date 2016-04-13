@@ -11,6 +11,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
+import android.widget.ViewSwitcher;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -72,10 +74,44 @@ public class ProfileActivity extends AppCompatActivity {
 
     public class AccountFragment extends Fragment {
 
+        TextView address, phone;
+        ViewSwitcher addressSwitcher, phoneSwitcher;
+
         @Nullable
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
             View rootView = inflater.inflate(R.layout.fragment_profile_account, container, false);
+
+            address = (TextView) rootView.findViewById(R.id.text_address);
+            phone = (TextView) rootView.findViewById(R.id.text_phone);
+
+            addressSwitcher = (ViewSwitcher) rootView.findViewById(R.id.address_switcher);
+            phoneSwitcher = (ViewSwitcher) rootView.findViewById(R.id.phone_switcher);
+
+            address.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    addressSwitcher.showNext();
+                }
+            });
+            phone.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    phoneSwitcher.showNext();
+                }
+            });
+
+            return rootView;
+        }
+    }
+
+
+    public class EyeDetailsFragment extends Fragment {
+
+        @Nullable
+        @Override
+        public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+            View rootView = inflater.inflate(R.layout.fragment_eye_detail, container, false);
             return rootView;
         }
     }
