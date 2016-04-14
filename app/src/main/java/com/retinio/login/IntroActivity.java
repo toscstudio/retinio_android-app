@@ -40,6 +40,11 @@ public class IntroActivity extends AppCompatActivity {
                             | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
         }
 
+        //Color systemBars
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            getWindow().setNavigationBarColor(getResources().getColor(R.color.colorPrimaryDark));
+        }
+
         skipButton = (Button) findViewById(R.id.btn_skip);
         if (findViewById(R.id.intro_glass_animator) != null) {
             glassAnim = (AnimationDrawable) ((ImageView) findViewById(R.id.intro_glass_animator)).getDrawable();
