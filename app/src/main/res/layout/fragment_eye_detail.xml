@@ -1,6 +1,100 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-</LinearLayout>
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/specs"
+        android:src="@drawable/specs"
+        android:layout_gravity="center_horizontal"
+        android:layout_centerHorizontal="true" />
+
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/spherical_right"
+        android:text="+5"
+        android:layout_below="@+id/specs"
+        android:layout_alignLeft="@+id/specs"
+        android:layout_alignStart="@+id/specs"
+        android:background="@android:color/transparent"
+        android:layout_marginTop="20dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/spherical"
+        android:text="Spherical"
+        android:layout_alignTop="@+id/spherical_right"
+        android:layout_centerHorizontal="true" />
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/spherical_left"
+        android:text="+5"
+        android:background="@android:color/transparent"
+        android:layout_alignTop="@+id/spherical"
+        android:layout_alignRight="@+id/specs"
+        android:layout_alignEnd="@+id/specs" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/cylindrical_right"
+        android:text="+5"
+        android:background="@android:color/transparent"
+        android:layout_alignTop="@+id/cylindrical"
+        android:layout_alignLeft="@+id/spherical_left"
+        android:layout_alignStart="@+id/spherical_left" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/cylindrical"
+        android:text="Cylindrical"
+        android:layout_alignTop="@+id/cylindrical_left"
+        android:layout_centerHorizontal="true" />
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/cylindrical_left"
+        android:text="+5"
+        android:background="@android:color/transparent"
+        android:layout_below="@+id/spherical_right"
+        android:layout_alignLeft="@+id/spherical_right"
+        android:layout_alignStart="@+id/spherical_right"
+        android:layout_marginTop="20dp" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/axis_right"
+        android:text="+5"
+        android:background="@android:color/transparent"
+        android:layout_alignTop="@+id/axis"
+        android:layout_alignLeft="@+id/cylindrical_right"
+        android:layout_alignStart="@+id/cylindrical_right" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/axis"
+        android:text="Axis"
+        android:layout_alignTop="@+id/axis_left"
+        android:layout_centerHorizontal="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/axis_left"
+        android:text="+5"
+        android:background="@android:color/transparent"
+        android:layout_below="@+id/cylindrical_left"
+        android:layout_alignLeft="@+id/cylindrical_left"
+        android:layout_alignStart="@+id/cylindrical_left"
+        android:layout_marginTop="20dp" />
+
+
+</RelativeLayout>
