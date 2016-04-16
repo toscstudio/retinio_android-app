@@ -5,8 +5,14 @@ package com.retinio.pojo
  */
 
 class Deal {
+    enum class DealTypes {
+        CHECKUP,
+        EYEWEAR
+    }
     var name:String = "";
     var desc:String = "";
     var storeName:String = "";
+    var dealType:DealTypes = DealTypes.EYEWEAR;
+
 
 }

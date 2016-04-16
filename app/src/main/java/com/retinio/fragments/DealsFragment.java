@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 
 import com.retinio.R;
 import com.retinio.adapters.DealAdapter;
+import com.retinio.api.RetinioDataApi;
 
 
 /**
@@ -33,7 +34,7 @@ public class DealsFragment extends Fragment {
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_deals, container, false);
         RecyclerView mRecyclerView = (RecyclerView) rootView.findViewById(R.id.deals_list);
-        mRecyclerView.setAdapter(new DealAdapter());
+        mRecyclerView.setAdapter(new DealAdapter(RetinioDataApi.getDeals(), getContext()));
         return rootView;
     }
 

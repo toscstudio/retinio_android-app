@@ -5,40 +5,49 @@
     android:orientation="horizontal"
     android:padding="20dp">
 
-    <ImageView
-        android:id="@+id/iv_deal"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+    <LinearLayout
+        android:gravity="center_vertical"
         android:layout_weight="1"
-        android:src="@drawable/lineicon_sunglass_1"
-        android:tint="@color/colorPrimary" />
+        android:layout_width="0dp"
+        android:layout_height="match_parent">
+        <ImageView
+            android:id="@+id/image_deal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/lineicon_sunglass_1"
+            android:tint="@color/colorPrimary" />
+    </LinearLayout>
+
+
 
     <LinearLayout
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
         android:layout_weight="3"
-        android:orientation="vertical"
-        android:paddingTop="10dp">
+        android:orientation="vertical">
 
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/text_deal_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Large Text"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textSize="22sp"/>
 
         <TextView
-            android:id="@+id/textView2"
+            android:id="@+id/text_deal_desc"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textSize="15sp"
             android:text="Medium Text"
             android:textAppearance="?android:attr/textAppearanceMedium" />
 
         <TextView
-            android:id="@+id/textView3"
+            android:id="@+id/text_deal_store_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textSize="10sp"
             android:text="Small Text"
             android:textAppearance="?android:attr/textAppearanceSmall" />
 
