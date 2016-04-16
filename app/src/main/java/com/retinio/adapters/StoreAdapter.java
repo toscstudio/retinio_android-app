@@ -41,10 +41,12 @@ public class StoreAdapter extends RecyclerView.Adapter<StoreAdapter.ViewHolder> 
         holder.storeAddress.setText(storesList.get(position).getAddress());
         holder.docAvailable.setVisibility(View.GONE);
         holder.buyAvailable.setVisibility(View.GONE);
-        if (storesList.get(position).isBuyAvailable())
-            holder.buyAvailable.setVisibility(View.VISIBLE);
-        if (storesList.get(position).isDocAvailable())
-            holder.docAvailable.setVisibility(View.VISIBLE);
+//        if (storesList.get(position).isBuyAvailable())
+//            holder.buyAvailable.setVisibility(View.VISIBLE);
+//        if (storesList.get(position).isDocAvailable())
+//            holder.docAvailable.setVisibility(View.VISIBLE);
+        holder.buyAvailable.setVisibility(View.GONE);
+        holder.docAvailable.setVisibility(View.GONE);
 
     }
 
