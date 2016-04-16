@@ -39,22 +39,38 @@ public class IntroFragment extends Fragment {
         TextView text = (TextView) rootView.findViewById(R.id.intro_text);
         ImageView introFace = (ImageView) rootView.findViewById(R.id.intro_fragment_face);
 
+        ImageView introImage1 = (ImageView) rootView.findViewById(R.id.intro_ic_one);
+        ImageView introImage2 = (ImageView) rootView.findViewById(R.id.intro_ic_two);
+        ImageView introImage3 = (ImageView) rootView.findViewById(R.id.intro_ic_three);
+
         switch (getArguments().getInt("position")) {
             case 0:
-                text.setText("Discover optical stores and eye clinics near you");
+                text.setText(R.string.intro_sentence_first);
                 introFace.setImageResource(R.drawable.intro_male_1);
+                introImage1.setImageResource(R.drawable.lineicon_box_eye);
+                introImage2.setImageResource(R.drawable.lineicon_shop);
+                introImage3.setImageResource(R.drawable.lineicon_map_search);
                 break;
             case 1:
-                text.setText("Book appointments for your next eye checkup");
+                text.setText(R.string.intro_sentence_second);
                 introFace.setImageResource(R.drawable.intro_female_1);
+                introImage1.setImageResource(R.drawable.lineicon_calendar_schedule);
+                introImage2.setImageResource(R.drawable.lineicon_doctor);
+                introImage3.setImageResource(R.drawable.lineicon_eye_chart);
                 break;
             case 2:
-                text.setText("Look for the store with your favourite eyewear brand");
+                text.setText(R.string.intro_sentence_third);
                 introFace.setImageResource(R.drawable.intro_male_2);
+                introImage1.setImageResource(R.drawable.lineicon_funky_glass_1);
+                introImage2.setImageResource(R.drawable.lineicon_funky_glass_2);
+                introImage3.setImageResource(R.drawable.lineicon_funky_glass_3);
                 break;
             case 3:
-                text.setText("Browse through best offers in optical stores near you");
+                text.setText(R.string.intro_sentence_fourth);
                 introFace.setImageResource(R.drawable.intro_female_2);
+                introImage1.setImageResource(R.drawable.lineicon_discount);
+                introImage2.setImageResource(R.drawable.lineicon_discount_balloon);
+                introImage3.setImageResource(R.drawable.lineicon_discount_gear);
                 break;
             default:
                 break;

@@ -26,8 +26,6 @@ import com.retinio.ui.SpacesItemDecoration;
  */
 public class ExploreFragment extends Fragment {
 
-    private RecyclerView mRecyclerView;
-
     public static ExploreFragment newInstance() {
 
         Bundle args = new Bundle();
@@ -52,7 +50,7 @@ public class ExploreFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.fragment_explore, container, false);
-        mRecyclerView = (RecyclerView) rootView.findViewById(R.id.store_list);
+        RecyclerView mRecyclerView = (RecyclerView) rootView.findViewById(R.id.store_list);
         mRecyclerView.setAdapter(new StoreAdapter(getActivity(), RetinioDataApi.getStores()));
         mRecyclerView.addItemDecoration(new SpacesItemDecoration(40));
         return rootView;

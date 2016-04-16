@@ -72,6 +72,9 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.nav_appointments:
                         fragmentClass = AppointmentsFragment.class;
                         break;
+                    default:
+                        fragmentClass = ExploreFragment.class;
+                        break;
                 }
                 try {
                     fragment = (Fragment) fragmentClass.newInstance();
@@ -119,10 +122,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        if (mDrawerToggle.onOptionsItemSelected(item)) {
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
+        return mDrawerToggle.onOptionsItemSelected(item) || super.onOptionsItemSelected(item);
     }
 
     public void transactFragment(Fragment fragment) {
