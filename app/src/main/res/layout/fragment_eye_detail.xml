@@ -1,100 +1,156 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/specs"
-        android:src="@drawable/specs"
-        android:layout_gravity="center_horizontal"
-        android:layout_centerHorizontal="true" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <FrameLayout
+            android:id="@+id/specs_frame"
+            android:layout_width="wrap_content"
+            android:layout_height="200dp"
+            android:layout_centerHorizontal="true">
+
+            <ImageView
+                android:id="@+id/specs"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:scaleType="centerCrop"
+                android:src="@drawable/specs"
+                android:transitionName="store_photo" />
+
+            <ImageView
+                android:id="@+id/specs_left"
+                android:layout_width="130dp"
+                android:layout_height="130dp"
+                android:layout_gravity="left|center_vertical" />
+
+            <ImageView
+                android:id="@+id/specs_right"
+                android:layout_width="130dp"
+                android:layout_height="130dp"
+                android:layout_gravity="right|center_vertical" />
+
+        </FrameLayout>
+
+        <EditText
+            android:id="@+id/spherical_left"
+            android:layout_width="wrap_content"
+            android:inputType="numberDecimal"
+            android:digits="0123456789-=."
+            android:imeOptions="actionDone"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/specs_frame"
+            android:layout_alignStart="@+id/specs_frame"
+            android:layout_below="@+id/specs_frame"
+            android:background="@android:color/transparent"
+            android:text="+5" />
+
+        <TextView
+            android:id="@+id/spherical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/spherical_left"
+            android:layout_centerHorizontal="true"
+            android:text="Spherical" />
+
+        <EditText
+            android:id="@+id/spherical_right"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"
+            android:digits="0123456789-=."
+            android:imeOptions="actionDone"
+            android:layout_alignEnd="@+id/specs_frame"
+            android:layout_alignRight="@+id/specs_frame"
+            android:layout_alignTop="@+id/spherical"
+            android:background="@android:color/transparent"
+            android:text="+5" />
+
+        <EditText
+            android:id="@+id/cylindrical_right"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"
+            android:digits="0123456789-=."
+            android:imeOptions="actionDone"
+            android:layout_alignLeft="@+id/spherical_right"
+            android:layout_alignStart="@+id/spherical_right"
+            android:layout_alignTop="@+id/cylindrical"
+            android:background="@android:color/transparent"
+            android:text="+5" />
+
+        <TextView
+            android:id="@+id/cylindrical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/cylindrical_left"
+            android:layout_centerHorizontal="true"
+            android:text="Cylindrical" />
+
+        <EditText
+            android:id="@+id/cylindrical_left"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"
+            android:digits="0123456789-=."
+            android:imeOptions="actionDone"
+            android:layout_alignLeft="@+id/spherical_left"
+            android:layout_alignStart="@+id/spherical_left"
+            android:layout_below="@+id/spherical_left"
+            android:layout_marginTop="20dp"
+            android:background="@android:color/transparent"
+            android:text="+5" />
+
+        <EditText
+            android:id="@+id/axis_right"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"
+            android:digits="0123456789-=."
+            android:imeOptions="actionDone"
+            android:layout_alignLeft="@+id/cylindrical_right"
+            android:layout_alignStart="@+id/cylindrical_right"
+            android:layout_alignTop="@+id/axis"
+            android:background="@android:color/transparent"
+            android:text="+5" />
+
+        <TextView
+            android:id="@+id/axis"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/axis_left"
+            android:layout_centerHorizontal="true"
+            android:text="Axis" />
+
+        <EditText
+            android:id="@+id/axis_left"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"
+            android:digits="0123456789-=."
+            android:imeOptions="actionDone"
+            android:layout_alignLeft="@+id/cylindrical_left"
+            android:layout_alignStart="@+id/cylindrical_left"
+            android:layout_below="@+id/cylindrical_left"
+            android:layout_marginTop="20dp"
+            android:background="@android:color/transparent"
+            android:text="+5" />
+
+        <Button
+            android:id="@+id/submit_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/axis_right"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="30dp"
+            android:text="Done"
+
+            />
 
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/spherical_right"
-        android:text="+5"
-        android:layout_below="@+id/specs"
-        android:layout_alignLeft="@+id/specs"
-        android:layout_alignStart="@+id/specs"
-        android:background="@android:color/transparent"
-        android:layout_marginTop="20dp" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/spherical"
-        android:text="Spherical"
-        android:layout_alignTop="@+id/spherical_right"
-        android:layout_centerHorizontal="true" />
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/spherical_left"
-        android:text="+5"
-        android:background="@android:color/transparent"
-        android:layout_alignTop="@+id/spherical"
-        android:layout_alignRight="@+id/specs"
-        android:layout_alignEnd="@+id/specs" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/cylindrical_right"
-        android:text="+5"
-        android:background="@android:color/transparent"
-        android:layout_alignTop="@+id/cylindrical"
-        android:layout_alignLeft="@+id/spherical_left"
-        android:layout_alignStart="@+id/spherical_left" />
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/cylindrical"
-        android:text="Cylindrical"
-        android:layout_alignTop="@+id/cylindrical_left"
-        android:layout_centerHorizontal="true" />
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/cylindrical_left"
-        android:text="+5"
-        android:background="@android:color/transparent"
-        android:layout_below="@+id/spherical_right"
-        android:layout_alignLeft="@+id/spherical_right"
-        android:layout_alignStart="@+id/spherical_right"
-        android:layout_marginTop="20dp" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/axis_right"
-        android:text="+5"
-        android:background="@android:color/transparent"
-        android:layout_alignTop="@+id/axis"
-        android:layout_alignLeft="@+id/cylindrical_right"
-        android:layout_alignStart="@+id/cylindrical_right" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/axis"
-        android:text="Axis"
-        android:layout_alignTop="@+id/axis_left"
-        android:layout_centerHorizontal="true" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/axis_left"
-        android:text="+5"
-        android:background="@android:color/transparent"
-        android:layout_below="@+id/cylindrical_left"
-        android:layout_alignLeft="@+id/cylindrical_left"
-        android:layout_alignStart="@+id/cylindrical_left"
-        android:layout_marginTop="20dp" />
-
-
-</RelativeLayout>
+    </RelativeLayout>
+</ScrollView>

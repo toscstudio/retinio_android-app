@@ -11,6 +11,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.ViewSwitcher;
 
@@ -38,7 +41,7 @@ public class ProfileActivity extends AppCompatActivity {
     private void setupViewPager(ViewPager viewPager) {
         Adapter adapter = new Adapter(getSupportFragmentManager());
         adapter.addFragment(new AccountFragment(), "Account");
-        adapter.addFragment(new AccountFragment(), "Eye details");
+        adapter.addFragment(new EyeDetailsFragment(), "Eye details");
         viewPager.setAdapter(adapter);
     }
 
@@ -110,8 +113,59 @@ public class ProfileActivity extends AppCompatActivity {
 
         @Nullable
         @Override
-        public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
             View rootView = inflater.inflate(R.layout.fragment_eye_detail, container, false);
+            final EditText cylindricalRight = (EditText) rootView.findViewById(R.id.cylindrical_right);
+            final EditText cylindricalLeft = (EditText) rootView.findViewById(R.id.cylindrical_left);
+            final EditText axisRight = (EditText) rootView.findViewById(R.id.axis_right);
+            final EditText axisLeft = (EditText) rootView.findViewById(R.id.axis_left);
+            final EditText sphericalLeft = (EditText) rootView.findViewById(R.id.spherical_left);
+            final EditText sphericalRight = (EditText) rootView.findViewById(R.id.spherical_right);
+            ImageView spectacles = (ImageView) rootView.findViewById(R.id.specs);
+            ImageView leftSpectacle  = (ImageView) rootView.findViewById(R.id.specs_left);
+            ImageView rightSpectacle = (ImageView) rootView.findViewById(R.id.specs_right);
+            final Button submitButton = (Button) rootView.findViewById(R.id.submit_button);
+
+            submitButton.setVisibility(View.GONE);
+            axisLeft.setEnabled(false);
+            axisRight.setEnabled(false);
+            cylindricalLeft.setEnabled(false);
+            cylindricalRight.setEnabled(false);
+            sphericalLeft.setEnabled(false);
+            sphericalRight.setEnabled(false);
+
+            leftSpectacle.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    axisLeft.setEnabled(true);
+                    cylindricalLeft.setEnabled(true);
+                    sphericalLeft.setEnabled(true);
+                    submitButton.setVisibility(View.VISIBLE);
+                }
+            });
+
+            rightSpectacle.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    axisRight.setEnabled(true);
+                    cylindricalRight.setEnabled(true);
+                    sphericalRight.setEnabled(true);
+                    submitButton.setVisibility(View.VISIBLE);
+                }
+            });
+
+            submitButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    axisLeft.setEnabled(false);
+                    axisRight.setEnabled(false);
+                    cylindricalLeft.setEnabled(false);
+                    cylindricalRight.setEnabled(false);
+                    sphericalLeft.setEnabled(false);
+                    sphericalRight.setEnabled(false);
+                    submitButton.setVisibility(View.GONE);
+                }
+            });
             return rootView;
         }
     }
