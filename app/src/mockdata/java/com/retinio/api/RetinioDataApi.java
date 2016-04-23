@@ -1,6 +1,7 @@
 package com.retinio.api;
 
 import com.retinio.pojo.Deal;
+import com.retinio.pojo.Reviews;
 import com.retinio.pojo.Store;
 
 import java.util.ArrayList;
@@ -10,6 +11,28 @@ import java.util.List;
  * Created by championswimmer on 6/4/16.
  */
 public class RetinioDataApi {
+
+
+    public static List<Reviews> getReviews() {
+        List<Reviews> reviewsList = new ArrayList<>(3);
+
+        Reviews r = new Reviews();
+        r.setName("John Doe");
+        r.setReview("Great store, have lots of variety and hassle free appointment booking.");
+        reviewsList.add(r);
+
+        r = new Reviews();
+        r.setName("Uma Yadav");
+        r.setReview("Awesome variety, with such affordable prices");
+        reviewsList.add(r);
+
+        r = new Reviews();
+        r.setName("Namien Garg");
+        r.setReview("Nice and quick eyes checkup done.");
+        reviewsList.add(r);
+
+        return reviewsList;
+    }
 
     public static List<Store> getStores() {
         List<Store> storeList = new ArrayList<>(10);
