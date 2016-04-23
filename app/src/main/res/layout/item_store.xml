@@ -54,11 +54,21 @@
         android:id="@+id/store_address"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
         android:maxLines="2"
         android:text="I 2/8 Rohini Sector-16, New Delhi"
         android:textColor="@android:color/black"
         android:textSize="15sp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Price starts from - ₹1000"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="5dp"
+        android:textColor="@android:color/black"
+        android:layout_toLeftOf="@+id/store_distance"/>
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -74,7 +84,7 @@
             android:layout_height="25dp"
             android:layout_alignParentLeft="true"
             android:layout_centerVertical="true"
-            android:src="@drawable/ic_location_on_black_48dp" />
+            android:src="@drawable/clinic" />
 
         <ImageView
             android:id="@+id/store_buy_available"
@@ -84,15 +94,7 @@
             android:layout_marginLeft="10dp"
             android:layout_marginStart="10dp"
             android:layout_toRightOf="@id/store_doc_available"
-            android:src="@drawable/ic_location_on_black_48dp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Price starts from - ₹1000"
-            android:layout_alignParentLeft="true"
-            android:textColor="@android:color/black"
-            android:layout_toLeftOf="@+id/store_distance"/>
+            android:src="@drawable/shop" />
 
 
         <ImageView
