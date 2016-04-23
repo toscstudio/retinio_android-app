@@ -7,13 +7,19 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import com.retinio.adapters.ReviewsAdapter;
+import com.retinio.adapters.StoreAdapter;
+import com.retinio.api.RetinioDataApi;
 import com.retinio.fragments.StorePhotoFragment;
+import com.retinio.pojo.Reviews;
 import com.retinio.ui.InkPageIndicator;
+import com.retinio.ui.SpacesItemDecoration;
 
 import net.i2p.android.ext.floatingactionbutton.FloatingActionButton;
 
@@ -50,7 +56,11 @@ public class StoreDetailActivity extends AppCompatActivity {
         pageIndicator = (InkPageIndicator) findViewById(R.id.indicator);
         assert pageIndicator != null;
         pageIndicator.setViewPager(viewPager);
-
+        RecyclerView mRecyclerView = (RecyclerView) findViewById(R.id.reviews_list);
+        List<Reviews> reviewsList = RetinioDataApi.getReviews();
+        ReviewsAdapter adapter = new ReviewsAdapter(this, reviewsList);
+        mRecyclerView.setAdapter(adapter);
+        mRecyclerView.addItemDecoration(new SpacesItemDecoration(40));
         fabBookApointment = (FloatingActionButton) findViewById(R.id.fab_book_appointment);
         fabWriteReview = (FloatingActionButton) findViewById(R.id.fab_write_review);
 
